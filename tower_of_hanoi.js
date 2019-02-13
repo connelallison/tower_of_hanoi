@@ -24,10 +24,10 @@ const towerOfHanoi = function (height) {
   for (let i = 0; i < height; i++) {
     rings.push(1);
   };
-  // console.log(rings);
+  console.log(rings);
   moveRing(0, 3);
-  // console.log(rings);
-  // console.log(`Moves: ${moves}`);
+  console.log(rings);
+  console.log(`Moves: ${moves}`);
 }
 if (process.argv.length > 2) {
   towerOfHanoi(process.argv[2]);
