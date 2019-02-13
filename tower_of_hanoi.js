@@ -12,7 +12,7 @@ const towerOfHanoi = function (height) {
         }
     }
     rings[ring] = target;
-    console.log(`Moved ring ${ring} from ${home} to ${target}.`);
+    // console.log(`Moved ring ${ring} from ${home} to ${target}.`);
     moves++;
     if (rings[ring + 1]) {
       moveRing((ring + 1), target);
@@ -24,18 +24,13 @@ const towerOfHanoi = function (height) {
   for (let i = 0; i < height; i++) {
     rings.push(1);
   };
-  console.log(rings);
+  // console.log(rings);
   moveRing(0, 3);
-  console.log(rings);
-  console.log(`Moves: ${moves}`);
+  // console.log(rings);
+  // console.log(`Moves: ${moves}`);
 }
-
-// towerOfHanoi(3);
-// towerOfHanoi(4);
-// towerOfHanoi(5);
-// towerOfHanoi(6);
-// towerOfHanoi(7);
-towerOfHanoi(8);
-// towerOfHanoi(9);
-// towerOfHanoi(10);
-// towerOfHanoi(11);
+if (process.argv.length > 2) {
+  towerOfHanoi(process.argv[2]);
+} else {
+  towerOfHanoi(12);
+}

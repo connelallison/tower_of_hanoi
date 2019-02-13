@@ -1,14 +1,20 @@
 #include <iostream>
 
-using  namespace std;
-
-int main()
-{
+int main(int argc, char const *argv[]) {
+//   /* code */
+//   return 0;
+// }
+// int main() {
+    using namespace std;
     int heightInput;
-    cout << "Please enter the number of rings in your Tower of Hanoi puzzle." << endl;
-    cin >> heightInput;
-//    heightInput = 3;
-    cout << heightInput << endl;
+    // cout << "Please enter the number of rings in your Tower of Hanoi puzzle." << endl;
+    // cin >> heightInput;
+   if (argc > 1) {
+     heightInput = atoi(argv[1]);
+   } else {
+     heightInput = 12;
+   }
+    // cout << heightInput << endl;
     int moves = 0;
     int rings[heightInput + 1];
     for (int i = 0; i < heightInput; i++) {
@@ -29,22 +35,22 @@ int main()
             }
         }
         rings[ringIndex] = target;
-        cout << "Moved ring " << ringIndex << " from " << home << " to " << target << "." << endl;
+        // cout << "Moved ring " << ringIndex << " from " << home << " to " << target << "." << endl;
         moves++;
         if (rings[ringIndex + 1]) {
             moveRing((ringIndex + 1), target);
         }
     };
-    for (int i = 0; i < heightInput; i++) {
-        cout << rings[i] << " ";
-    }
-    cout << endl;
+    // for (int i = 0; i < heightInput; i++) {
+    //     cout << rings[i] << " ";
+    // }
+    // cout << endl;
     moveRing(0, 3);
-    for (int i = 0; i < heightInput; i++) {
-        cout << rings[i] << " ";
-    }
-    cout << endl;
-    cout << "Moves: " << moves << endl;
+    // for (int i = 0; i < heightInput; i++) {
+    //     cout << rings[i] << " ";
+    // }
+    // cout << endl;
+    // cout << "Moves: " << moves << endl;
 
     return 0;
 }
