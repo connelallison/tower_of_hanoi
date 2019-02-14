@@ -8,13 +8,15 @@ const towerOfHanoi = function (height) {
     // });
     if (rings[ring + 1]) {
           moveRing((ring + 1), 6 - target - rings[ring]);
+          rings[ring] = target;
+          moves++;
+          moveRing((ring + 1), target);
+    } else {
+      rings[ring] = target;
+      moves++;
     }
-    rings[ring] = target;
     // console.log(`Moved ring ${ring} from ${home} to ${target}.`);
-    moves++;
-    if (rings[ring + 1]) {
-      moveRing((ring + 1), target);
-    }
+
   }
 
   let moves = 0;
