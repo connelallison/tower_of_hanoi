@@ -2,14 +2,12 @@
 
 const towerOfHanoi = function (height) {
   const moveRing = function (ring, target) {
-    const home = rings[ring];
-    const spare = [1, 2, 3].find((tower) => {
-      return tower !== target && tower !== home;
-    });
+    // const home = rings[ring];
+    // const spare = [1, 2, 3].find((tower) => {
+    //   return tower !== target && tower !== home;
+    // });
     if (rings[ring + 1]) {
-        if (rings[ring + 1] !== spare) {
-          moveRing((ring + 1), spare);
-        }
+          moveRing((ring + 1), 6 - target - rings[ring]);
     }
     rings[ring] = target;
     // console.log(`Moved ring ${ring} from ${home} to ${target}.`);
@@ -22,7 +20,7 @@ const towerOfHanoi = function (height) {
   let moves = 0;
   const rings = [];
   for (let i = 0; i < height; i++) {
-    rings.push(1);
+    rings[i] = 1;
   };
   // console.log(rings);
   moveRing(0, 3);
